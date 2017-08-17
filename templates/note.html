@@ -1,0 +1,10 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+    <h4>Note contents:</h4>
+    {{ object.note }}
+
+    <p><a href="{% url 'delete' object.id %}" class="btn btn-primary">Delete</a></p>
+
+{% endblock content %}

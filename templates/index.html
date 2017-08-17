@@ -1,0 +1,36 @@
+{% load static from staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Notes{% block meta_title %}{% endblock meta_title %}</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bootstrap/3.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href={{ PORTAL_URL }}{% static "main.css" %}>
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar navbar-default">
+            <h4 class="navbar-text"><a href="{% url 'home' %}">Notes</a></h4>
+            <ul class="nav navbar-nav">
+
+            </ul>
+        </nav>
+
+        {% block content %}
+
+        <p>Please, leave your note:</p>
+        <form method="post" action="{% url 'home' %}">
+            {% csrf_token %}
+            {{ form.as_p }}
+        <input type="submit" value="Submit" class="btn"/>
+        </form>
+
+        {% endblock content %}
+
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+</body>
+</html>

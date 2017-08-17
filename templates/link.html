@@ -1,0 +1,9 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+    <p>Note link ready:</p>
+    <h4><a href="{%  url 'note' link.ekey %}">http://127.0.0.1:8000/notes/{{ link.ekey }}</a></h4>
+
+{% endblock content %}
+
